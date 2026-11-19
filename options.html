@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>同人小说自动续读 · 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>同人小说自动续读</h1>
+      <p class="sub">章节页会自动抓取后面的章节并拼接，读到后面自动清理上面的旧章节。</p>
+
+      <section class="card">
+        <h2>阅读设置</h2>
+        <div class="field">
+          <label for="batch">一次抓取章节数</label>
+          <input id="batch" type="number" min="1" max="50" step="1" />
+          <span class="hint">每次开抓时连续抓这么多章，1–50</span>
+        </div>
+        <div class="field">
+          <label for="lowWater">剩多少未读章时开抓</label>
+          <input id="lowWater" type="number" min="1" max="20" step="1" />
+          <span class="hint">已备好但还没读到的章剩这么多个时，才开始抓下一批，1–20</span>
+        </div>
+        <div class="field">
+          <label for="keepAbove">上方保留章节数</label>
+          <input id="keepAbove" type="number" min="0" max="20" step="1" />
+          <span class="hint">读到新章时，当前章上方只留这么多章，更早的删掉，0–20</span>
+        </div>
+        <div class="actions">
+          <button id="save" class="primary">保存设置</button>
+          <span id="saveStatus" class="status"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>额外站点</h2>
+        <p class="hint">内置站点：qbtr.org、qbtr.cc、bqquge.org。换域名或镜像站时在这里加。</p>
+        <div id="siteList" class="site-list"></div>
+        <div class="row">
+          <input id="siteInput" type="text" placeholder="例如 qbtr.net 或 https://www.qbtr.net" />
+          <button id="addSite" class="primary">添加站点</button>
+        </div>
+        <p class="hint">添加时需要授权该站点，授权后刷新目标页面生效。</p>
+        <div id="siteStatus" class="status"></div>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

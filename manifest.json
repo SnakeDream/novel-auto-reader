@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "同人小说自动续读",
+  "version": "1.5.0",
+  "description": "章节页自动预取后续章节，滚动连读；自动清理旧章节，弱网重试并缓存；章数与站点可在设置页调整",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://www.qbtr.org/*",
+    "*://qbtr.org/*",
+    "*://www.qbtr.cc/*",
+    "*://qbtr.cc/*",
+    "*://www.bqquge.org/*",
+    "*://bqquge.org/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.qbtr.org/*",
+        "*://qbtr.org/*",
+        "*://www.qbtr.cc/*",
+        "*://qbtr.cc/*",
+        "*://www.bqquge.org/*",
+        "*://bqquge.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
